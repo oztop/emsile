@@ -1,0 +1,149 @@
+
+sulasi <- function(wo){
+  
+  if (nchar(wo) != 3){
+    
+    return(print("Error: Please choose a verb that contains three characters"))
+  }
+  
+  else {
+    
+    
+    table <- data.frame(x1=wo)
+    
+    table$x2 <- wo %>%
+      stri_sub_replace(1, 0, value = "ي")
+    
+    table$x3 <- wo %>%
+      stri_sub_replace(4, 3, value = "ا")
+    
+    table$x4 <- wo %>%
+      stri_sub_replace(2, 1, value = "ا")
+    
+    table$x5 <- wo %>%
+      stri_sub_replace(1, 0, value = "م") %>%
+      stri_sub_replace(4, 3, value = "و")
+    
+    table$x6 <- wo %>%
+      stri_sub_replace(1, 0, value = "لم ي")
+    
+    table$x7 <- wo %>%
+      stri_sub_replace(1, 0, value = "لما ي")
+    
+    table$x8 <- wo %>%
+      stri_sub_replace(1, 0, value = "ما ي")
+    
+    table$x9 <- wo %>%
+      stri_sub_replace(1, 0, value = "لا ي")
+    
+    table$x10 <- wo %>%
+      stri_sub_replace(1, 0, value = "لن ي")
+    
+    
+    table$x11 <- wo %>%
+      stri_sub_replace(1, 0, value = "لي")
+    
+    table$x12 <- wo %>%
+      stri_sub_replace(1, 0, value = "لا ي")
+
+    table$x13 <- wo %>%
+      stri_sub_replace(1, 0, value = "ا") 
+    
+    table$x14 <- wo %>%
+      stri_sub_replace(1, 0, value = "لا ت")
+    
+    table$x15 <- wo %>%
+      stri_sub_replace(1, 0, value = "م")
+    
+    
+    table$x16 <- wo %>%
+      stri_sub_replace(1, 0, value = "م")
+    
+    
+    table$x17 <- wo %>%
+      stri_sub_replace(4, 3, value = "ة")
+    
+    
+    table$x18 <- wo %>%
+      stri_sub_replace(4, 3, value = "ة")
+    
+    
+    table$x19 <- wo %>%
+      stri_sub_replace(3, 2, value = "ي")
+    
+    table$x20 <- wo %>%
+      stri_sub_replace(4, 3, value = "ي")
+    
+    
+    table$x21 <- wo %>%
+      stri_sub_replace(3, 2, value = "ا")
+    
+    table$x22 <- wo %>%
+      stri_sub_replace(1, 0, value = "ا")
+    
+    
+    table$x23 <- wo %>%
+      stri_sub_replace(1, 0, value = "ما ا")
+    
+    
+    table$x24 <- wo %>%
+      stri_sub_replace(1, 0, value = "ا") %>%
+      stri_sub_replace(5, 4, value = " به")
+    
+    # conditions for the words like akala ya'kulu aklan
+    
+     table$x4 <- mapply(gsub, pattern = "اا",
+         replacement = "آ", table$x4)
+  
+     table$x13 <- mapply(gsub, pattern = "اا",
+                     replacement = "", table$x13)
+     
+     table$x16 <- mapply(gsub, pattern = "ما",
+                         replacement = "مئ", table$x16)
+  
+     table$x22 <- mapply(gsub, pattern = "اا",
+                     replacement = "آ", table$x22)
+     
+     
+     table$x23 <- mapply(gsub, pattern = "اا",
+                         replacement = "آ", table$x23)
+  
+     table$x24 <- mapply(gsub, pattern = "اا",
+                      replacement = "آ", table$x24)
+     
+     ## conditions for the words like waqafa yaqifı waqfan
+     
+     table$x2 <- mapply(gsub, pattern = "يو",
+                         replacement = "ي", table$x2)
+     
+     table$x6 <- mapply(gsub, pattern = "يو",
+                        replacement = "ي", table$x6)
+     
+     table$x7 <- mapply(gsub, pattern = "يو",
+                        replacement = "ي", table$x7)
+     
+     table$x8 <- mapply(gsub, pattern = "يو",
+                        replacement = "ي", table$x8)
+     
+     table$x9 <- mapply(gsub, pattern = "يو",
+                        replacement = "ي", table$x9)
+     
+     table$x10 <- mapply(gsub, pattern = "يو",
+                        replacement = "ي", table$x10)
+     
+     table$x11 <- mapply(gsub, pattern = "يو",
+                        replacement = "ي", table$x11)
+     
+     table$x12 <- mapply(gsub, pattern = "يو",
+                        replacement = "ي", table$x12)
+     
+     table$x13 <- mapply(gsub, pattern = "او",
+                         replacement = "", table$x13)
+     
+     table$x14 <- mapply(gsub, pattern = "تو",
+                         replacement = "ت", table$x14)
+    return(print(table))
+    
+  }
+  
+}
